@@ -674,7 +674,7 @@ VoidProtection_Button.BorderSizePixel = 0
 VoidProtection_Button.Position = UDim2.new(0, 25, 0, 175)
 VoidProtection_Button.Size = UDim2.new(0, 150, 0, 30)
 VoidProtection_Button.Font = Enum.Font.Oswald
-VoidProtection_Button.Text = "چنە"
+VoidProtection_Button.Text = "دیتنا priveiaty"
 VoidProtection_Button.TextColor3 = Color3.fromRGB(0, 0, 0)
 VoidProtection_Button.TextScaled = true
 VoidProtection_Button.TextSize = 14.000
@@ -2317,23 +2317,7 @@ PotionFling_Button.MouseButton1Click:Connect(function()
 	end
 end)
 
-TouchFling_Button.MouseButton1Click:Connect(function()
-	ChangeToggleColor(TouchFling_Button)
-	if TouchFling_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0,255,0) then
-		local fixpos = GetRoot(plr).Position
-		ToggleVoidProtection(true)
-		ToggleFling(true)
-		TeleportTO(fixpos.X,fixpos.Y,fixpos.Z,"pos","safe")
-		ToggleVoidProtection(false)
-		if VoidProtection_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0,255,0) then
-			ToggleVoidProtection(true)
-		end
-	else
-		if FlingTarget_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0,255,0) then
-			ChangeToggleColor(FlingTarget_Button)
-		end
-	end
-end)
+
 
 PotionDi_Button.MouseButton1Click:Connect(function()
 	ChangeToggleColor(PotionDi_Button)
@@ -2359,14 +2343,6 @@ PotionDi_Button.MouseButton1Click:Connect(function()
 	end
 end)
 
-VoidProtection_Button.MouseButton1Click:Connect(function()
-	ChangeToggleColor(VoidProtection_Button)
-	if VoidProtection_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0,255,0) then
-		ToggleVoidProtection(true)
-	else
-		ToggleVoidProtection(false)
-	end
-end)
 
 FreePushTool_Button.MouseButton1Click:Connect(function()
 	local ModdedPush = Instance.new("Tool")
@@ -2401,31 +2377,7 @@ FreePushTool_Button.MouseButton1Click:Connect(function()
 	ModdedPush.Parent = plr.Backpack
 end)
 
-BreakCannons_Button.MouseButton1Click:Connect(function()
-	ToggleVoidProtection(true)
-	TeleportTO(0,-10000,0,"pos")
-	task.wait(GetPing()+0.1)
-	ToggleVoidProtection(false)
-	task.wait(GetPing()+0.1)
-	for i,v in pairs(CannonsFolders[1]:GetChildren()) do
-		if v.Name == "Cannon" then
-			pcall(function()
-				fireclickdetector(v.Cannon_Part.ClickDetector)
-			end)
-		end
-	end
-	for i,v in pairs(CannonsFolders[2]:GetChildren()) do
-		if v.Name == "Cannon" then
-			pcall(function()
-				fireclickdetector(v.Cannon_Part.ClickDetector)
-			end)
-		end
-	end
 
-	if VoidProtection_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0,255,0) then
-		ToggleVoidProtection(true)
-	end
-end)
 
 PushAll_Button.MouseButton1Click:Connect(function()
 	local oldpos = GetRoot(plr).Position
@@ -3394,6 +3346,11 @@ Night_Button.MouseButton1Click:Connect(function()
 		SendNotify("WOLF","Snap : r2y0h",10)
 	end
 end)
+
+VoidProtection_Button.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet('https://pastebin.com/raw/iMgUE4st'))()
+end)
+
 
 InfYield_Button.MouseButton1Click:Connect(function()
 	loadstring(game:HttpGet('https://pastebin.com/raw/iMgUE4st'))()
